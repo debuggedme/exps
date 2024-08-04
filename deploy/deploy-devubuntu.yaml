@@ -1,0 +1,28 @@
+# kubectl --kubeconfig .hk-tencent -n devcontainers apply -f devcontainers/deploy-devubuntu.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devubuntu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devubuntu
+  template:
+    metadata:
+      labels:
+        app: devubuntu
+    spec:
+      containers:
+        - name: devubuntu
+          image: mcr.microsoft.com/devcontainers/base:ubuntu
+          command: ["sleep"]
+          args: ["infinity"]
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1024Mi"
