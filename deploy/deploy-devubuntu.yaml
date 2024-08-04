@@ -1,4 +1,4 @@
-# kubectl --kubeconfig .hk-tencent -n devcontainers apply -f devcontainers/deploy-devubuntu.yaml
+# kubectl --kubeconfig .hk-tencent -n devcontainers apply -f deploy/deploy-devubuntu.yaml
 
 apiVersion: apps/v1
 kind: Deployment

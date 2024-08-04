@@ -1,4 +1,4 @@
-# kubectl --kubeconfig .hk-tencent create -f devcontainers/namespace-devcontainers.yaml
+# kubectl --kubeconfig .hk-tencent create -f deploy/namespace-devcontainers.yaml
 
 apiVersion: v1
 kind: Namespace
