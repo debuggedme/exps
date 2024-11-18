@@ -22,4 +22,4 @@ jobs:
         with:
           context: "{{defaultContext}}:${{ vars.CTXS_NAME }}"
           push: true
-          tags: ${{ vars.REPO_NAME }}/${{ vars.TAGS_NAME }}
+          tags: ${{ vars.REPO_NAME }}:${{ vars.TAGS_NAME }}
