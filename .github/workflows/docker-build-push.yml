@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_NAME: taggedme/public
-  TAGS_NAME: alpine-3.20.3
-  CTXS_NAME: .
+  REPO_NAME: ${{ vars.REPO_NAME }}
+  TAGS_NAME: ${{ vars.TAGS_NAME }}
+  CTXS_NAME: ${{ vars.CTXS_NAME }}
 
 jobs:
   docker:
