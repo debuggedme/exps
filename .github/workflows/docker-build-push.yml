@@ -3,11 +3,6 @@ name: docker-build-push
 on:
   workflow_dispatch:
 
-env:
-  REPO_NAME: ${{ vars.REPO_NAME }}
-  TAGS_NAME: ${{ vars.TAGS_NAME }}
-  CTXS_NAME: ${{ vars.CTXS_NAME }}
-
 jobs:
   docker:
     runs-on: ubuntu-22.04
@@ -28,6 +23,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: "{{defaultContext}}:${{ env.CTXS_NAME }}"
+          context: "{{defaultContext}}:${{ vars.CTXS_NAME }}"
           push: true
-          tags: ${{ env.REPO_NAME }}/${{ env.TAGS_NAME }}
+          tags: ${{ vars.REPO_NAME }}/${{ vars.TAGS_NAME }}
