@@ -2,6 +2,24 @@ name: docker-build-push
 
 on:
   workflow_dispatch:
+    inputs:
+      ctxs:
+        description: 'Dockerfile dir'
+        type: string
+        required: true
+      tags:
+        description: 'docker tags'
+        required: true
+        type: string
+      repo:
+        description: 'docker repo'
+        type: string
+        required: true
+
+env:
+  CTXS_NAME: ${{ inputs.ctxs }}
+  REPO_NAME: ${{ inputs.repo }}
+  TAGS_NAME: ${{ inputs.tags }}
 
 jobs:
   docker:
@@ -20,6 +38,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: "{{defaultContext}}:${{ vars.CTXS_NAME }}"
+          context: "{{defaultContext}}:${{ env.CTXS_NAME }}"
           push: true
-          tags: ${{ vars.REPO_NAME }}:${{ vars.TAGS_NAME }}
+          tags: ${{ env.REPO_NAME }}:${{ env.TAGS_NAME }}
