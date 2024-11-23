@@ -27,7 +27,7 @@ jobs:
     steps:
       -
         name: Set up Docker Buildx
-        run: echo "{{defaultContext}}"
+        run: echo "hello ${{ github.repository }}"
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
