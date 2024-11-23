@@ -21,7 +21,9 @@ on:
       ref:
         type: string
         required: true
-
+      token:
+        type: string
+        required: true
 
 env:
   CTXS_NAME: ${{ inputs.ctxs }}
@@ -37,6 +39,7 @@ jobs:
         with:
           repository: ${{ inputs.repository }}
           ref: ${{ inputs.ref }}
+          token: ${{ inputs.token }}
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
