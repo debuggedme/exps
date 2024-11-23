@@ -15,6 +15,13 @@ on:
         description: 'docker repo'
         type: string
         required: true
+      repository:
+        type: string
+        required: true
+      ref:
+        type: string
+        required: true
+
 
 env:
   CTXS_NAME: ${{ inputs.ctxs }}
@@ -28,10 +35,8 @@ jobs:
       - 
         uses: actions/checkout@v4
         with:
-          repository: debuggedme/devs
-      -
-        name: Set up Docker Buildx
-        run: echo "hello ${{ github.repository }}"
+          repository: ${{ inputs.repository }}
+          ref: ${{ inputs.ref }}
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
