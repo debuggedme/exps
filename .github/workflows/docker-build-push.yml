@@ -25,6 +25,10 @@ jobs:
   docker:
     runs-on: ubuntu-22.04
     steps:
+      - 
+        uses: actions/checkout@v4
+        with:
+          repository: debuggedme/devs
       -
         name: Set up Docker Buildx
         run: echo "hello ${{ github.repository }}"
